@@ -12,8 +12,8 @@ RUN npm run build --prod
 
 FROM nginx:alpine
 
-EXPOSE 80
+EXPOSE 8080
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=build /app/dist/angular-deploy /usr/share/nginx/html
+COPY --from=build /app/dist/angular-deploy/browser /usr/share/nginx/html
